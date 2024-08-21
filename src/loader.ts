@@ -17,24 +17,14 @@ export async function loader() {
 
   const finalizedSquads: Squad[] = squads
     .filter((v) => v.status == "active")
-    .map(
-      ({
+    .map(({ name, leadName, tags, threadId }) => {
+      return {
         name,
-        leadName,
-        tags,
-        threadId,
-        status,
-        creationDate,
-        lastInteractionTimestamp,
-      }) => {
-        return {
-          name,
-          lead: leadName,
-          tags: tags.split(", "),
-          link: "https://discord.com/channels/1247647880634695730/" + threadId,
-        };
-      }
-    );
+        lead: leadName,
+        tags: tags.split(", "),
+        link: "https://discord.com/channels/1247647880634695730/" + threadId,
+      };
+    });
 
   return { squads: finalizedSquads, tasks };
 }

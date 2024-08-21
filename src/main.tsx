@@ -9,8 +9,17 @@ import { loader } from "./loader.ts";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
     loader: loader,
+    children: [
+      {
+        path: "/",
+        element: <App />,
+      },
+      {
+        path: "/:squadId",
+        element: <div>jesus christ why</div>,
+      },
+    ],
   },
 ]);
 

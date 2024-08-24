@@ -12,19 +12,35 @@ export async function loader() {
     status: string;
     creationDate: string;
     lastInteractionTimestamp: string;
+    firstmessage: string;
   }[] = await s.json();
   const tasks = await t.json();
 
   const finalizedSquads: Squad[] = squads
     .filter((v) => v.status == "active")
-    .map(({ name, leadName, tags, threadId }) => {
-      return {
+    .map(
+      ({
         name,
-        lead: leadName,
-        tags: tags.split(", "),
-        link: "https://discord.com/channels/1247647880634695730/" + threadId,
-      };
-    });
+        leadName,
+        tags,
+        threadId,
+        creationDate,
+        firstmessage,
+        lastInteractionTimestamp,
+      }) => {
+        return {
+          name,
+          lead: leadName,
+          tags: tags.split(", "),
+          id: threadId,
+          creationDate: new Date(Number(creationDate) * 1000),
+          lastInteractionDate: new Date(
+            Number(lastInteractionTimestamp) * 1000
+          ),
+          desc: firstmessage,
+        };
+      }
+    );
 
-  return { squads: finalizedSquads, tasks };
+  return { tasks, squads: finalizedSquads };
 }

@@ -1,10 +1,15 @@
 import { Chip } from "@nextui-org/react";
+import { Link } from "react-router-dom";
 
 export interface Squad {
   name: string;
   lead: string;
   tags: string[];
-  link: string;
+  id: string;
+  desc: string;
+  creationDate: Date;
+  lastInteractionDate: Date;
+
   /*
   status: "Planning" | "In Progress" | "Complete";
   type: "Permanent" | "Ephemeral";
@@ -35,6 +40,7 @@ export default function SquadList({ squads }: SquadListProps) {
                   ? "bg-purple-300"
                   : "")
               }
+              key={x}
             >
               {x}
             </Chip>
@@ -42,17 +48,17 @@ export default function SquadList({ squads }: SquadListProps) {
         });
 
         return (
-          <a
-            href={v.link}
+          <Link
+            to={"/squads/" + v.id}
             className={
               "p-4 hover:bg-blue-50 " + (i % 2 == 1 ? "bg-gray-100" : "")
             }
-            key={i}
+            key={v.id}
           >
             <h2 className="font-semibold text-lg">{v.name}</h2>
             <p className="text-sm italic">led by {v.lead}</p>
             <div className="mt-2 space-y-2">{tags}</div>
-          </a>
+          </Link>
         );
       })
     : "Loading...";

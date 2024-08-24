@@ -6,9 +6,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import {
   createBrowserRouter,
   Outlet,
-  Route,
   RouterProvider,
-  Routes,
   useNavigate,
 } from "react-router-dom";
 import { loader } from "./loader.ts";

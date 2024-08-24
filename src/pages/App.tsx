@@ -24,7 +24,8 @@ const Board: React.FC = () => {
 
   const [squadsVisible, setSquadsVisible] = useState(true);
   const [tasksVisible, setTasksVisible] = useState(true);
-  const [selectedKeys, setSelectedKeys] = useState(new Set<string>());
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [selectedKeys, setSelectedKeys] = useState<any>(new Set<string>());
 
   const displayedSquads = useMemo(() => {
     return squads

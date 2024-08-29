@@ -1,4 +1,4 @@
-import { Chip, Link } from "@nextui-org/react";
+import { Link } from "@nextui-org/react";
 
 export interface Task {
   name: string;

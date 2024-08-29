@@ -1,4 +1,5 @@
 import { Squad } from "./components/SquadList";
+import { Task } from "./components/TaskList";
 
 export async function loader() {
   const s = await fetch("https://collective.mrkiter.com/squads");
@@ -14,7 +15,17 @@ export async function loader() {
     lastInteractionTimestamp: string;
     firstmessage: string;
   }[] = await s.json();
-  const tasks = await t.json();
+  const tasks: {
+    id: number;
+    name: string;
+    description: string;
+    threadId: string;
+    xp: number;
+    createdBy: string;
+    isActive: "0" | "1";
+    createdTimestamp: string | number;
+    endTimestamp: string | number;
+  }[] = await t.json();
 
   const finalizedSquads: Squad[] = squads
     .filter((v) => v.status == "active")
@@ -42,5 +53,19 @@ export async function loader() {
       }
     );
 
-  return { tasks, squads: finalizedSquads };
+  const finalizedTasks: Task[] = tasks
+    .filter((v) => v.isActive == "1")
+    .map(({ createdBy, description, name, id, threadId, xp, endTimestamp }) => {
+      return {
+        name,
+        description,
+        author: createdBy,
+        dueDate: new Date(endTimestamp),
+        id,
+        squad: threadId,
+        xp,
+      };
+    });
+
+  return { tasks: finalizedTasks, squads: finalizedSquads };
 }

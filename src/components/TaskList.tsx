@@ -28,7 +28,7 @@ export default function TaskList({ tasks }: TaskListProps) {
               {v.name} ({v.xp} XP)
             </h2>
             <p className="text-sm italic">
-              created by {v.author} for {v.squad}.
+              created by {v.author} {v.squad && `for ${v.squad}.`}
             </p>
             <p className="text-sm italic">due {v.dueDate.toLocaleString()}</p>
             <p>{v.description}</p>

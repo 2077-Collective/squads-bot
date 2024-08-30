@@ -54,7 +54,7 @@ export async function loader() {
     );
 
   const finalizedTasks: Task[] = tasks
-    .filter((v) => v.isActive == "1")
+    .filter((v) => v.isActive != "1")
     .map(({ createdBy, description, name, id, threadId, xp, endTimestamp }) => {
       return {
         name,

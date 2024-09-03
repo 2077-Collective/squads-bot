@@ -22,7 +22,7 @@ export async function loader() {
     threadId: string;
     xp: number;
     createdBy: string;
-    isActive: "0" | "1";
+    status: "deleted" | "1";
     createdTimestamp: string | number;
     endTimestamp: string | number;
   }[] = await t.json();
@@ -53,8 +53,9 @@ export async function loader() {
       }
     );
 
+  console.log(tasks);
   const finalizedTasks: Task[] = tasks
-    .filter((v) => v.isActive != "1")
+    .filter((v) => v.status != "deleted")
     .map(({ createdBy, description, name, id, threadId, xp, endTimestamp }) => {
       return {
         name,

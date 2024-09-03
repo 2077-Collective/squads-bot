@@ -25,7 +25,7 @@ export default function TaskList({ tasks }: TaskListProps) {
             key={v.id}
           >
             <h2 className="font-semibold text-lg">
-              {v.name} ({v.xp} XP)
+              #{v.id}: {v.name} ({v.xp} XP)
             </h2>
             <p className="text-sm italic">
               created by {v.author} {v.squad && `for ${v.squad}.`}

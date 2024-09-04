@@ -15,7 +15,11 @@ export default {
       themes: {
         "i-fucking-hate-this": {
           extend: "dark",
-          colors: {},
+          colors: {
+            content1: "#000000",
+            content2: "#18181b",
+            divider: "#32DADC",
+          },
         },
       },
     }),

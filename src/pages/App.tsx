@@ -51,7 +51,7 @@ const Board: React.FC = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4 pl-2">2077 Community Dashboard</h1>
       <div className="grid md:grid-cols-2 gap-4">
-        <Card className="md:col-span-2">
+        <Card className="md:col-span-2 border-cyan-400 border">
           <CardHeader>
             <div className="w-full flex items-center">
               <h2 className="text-xl font-semibold inline-block">
@@ -64,7 +64,7 @@ const Board: React.FC = () => {
             <p>Onboarding calls happen every Monday and Friday.</p>
           </CardBody>
         </Card>
-        <Card className="self-start">
+        <Card className="self-start border-cyan-400 border">
           <CardHeader>
             <div className="w-full flex items-center">
               <h2 className="text-xl font-semibold inline-block mr-auto">
@@ -111,7 +111,7 @@ const Board: React.FC = () => {
             </>
           )}
         </Card>
-        <Card className="self-start">
+        <Card className="self-start border-cyan-400 border">
           <CardHeader>
             <div className="flex w-full items-center">
               <h2 className="text-xl font-semibold">

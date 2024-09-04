@@ -51,7 +51,7 @@ export default function SquadList({ squads }: SquadListProps) {
           <Link
             to={"/squads/" + v.id}
             className={
-              "p-4 hover:bg-blue-900 " + (i % 2 == 1 ? "bg-zinc-800" : "")
+              "p-4 hover:bg-primary-50 " + (i % 2 == 1 ? "bg-content2" : "")
             }
             key={v.id}
           >

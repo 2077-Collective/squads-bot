@@ -35,7 +35,7 @@ function SquadDetails() {
   );
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 min-h-screen">
       <h1 className="text-2xl font-bold mb-4 pl-2">2077 Community Dashboard</h1>
       <Breadcrumbs className="pl-2 pb-4">
         <BreadcrumbItem>
@@ -44,7 +44,7 @@ function SquadDetails() {
         <BreadcrumbItem>{squad?.name}</BreadcrumbItem>
       </Breadcrumbs>
       <div className="grid md:grid-cols-2 gap-4">
-        <Card className="self-start">
+        <Card className="self-start border-cyan-400 border">
           <CardHeader>
             <div>
               <h1 className="text-2xl font-semibold">{squad?.name}</h1>
@@ -66,7 +66,7 @@ function SquadDetails() {
           <Divider />
           <CardBody>
             {/* todo: format it like an actual fucking msg */}
-            <Markdown className="prose">{squad?.desc}</Markdown>
+            <Markdown className="prose-invert">{squad?.desc}</Markdown>
           </CardBody>
           <Divider />
           <CardFooter>
@@ -83,7 +83,7 @@ function SquadDetails() {
             </Button>
           </CardFooter>
         </Card>{" "}
-        <Card className="self-start">
+        <Card className="self-start border-cyan-400 border">
           <CardHeader>
             <h1 className="text-2xl font-semibold">Tasks</h1>
           </CardHeader>

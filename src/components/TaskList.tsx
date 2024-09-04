@@ -21,7 +21,7 @@ export default function TaskList({ tasks }: TaskListProps) {
     ? tasks.map((v, i) => {
         return (
           <div
-            className={"p-4 " + (i % 2 == 1 ? "bg-zinc-800" : "")}
+            className={"p-4 " + (i % 2 == 1 ? "bg-content2" : "")}
             key={v.id}
           >
             <h2 className="font-semibold text-lg">

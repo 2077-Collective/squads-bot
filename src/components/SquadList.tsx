@@ -29,15 +29,15 @@ export default function SquadList({ squads }: SquadListProps) {
               className={
                 "mr-2 " +
                 (x == "In Progress"
-                  ? "bg-yellow-300"
+                  ? "bg-yellow-500 text-black"
                   : x == "Complete"
-                  ? "bg-green-300"
+                  ? "bg-green-500"
                   : x == "Planning"
-                  ? "bg-blue-300"
+                  ? "bg-blue-500"
                   : x == "Ephemeral"
-                  ? "bg-pink-300"
+                  ? "bg-pink-500"
                   : x == "Permanent"
-                  ? "bg-purple-300"
+                  ? "bg-purple-500"
                   : "")
               }
               key={x}
@@ -51,7 +51,7 @@ export default function SquadList({ squads }: SquadListProps) {
           <Link
             to={"/squads/" + v.id}
             className={
-              "p-4 hover:bg-blue-50 " + (i % 2 == 1 ? "bg-gray-100" : "")
+              "p-4 hover:bg-blue-900 " + (i % 2 == 1 ? "bg-zinc-800" : "")
             }
             key={v.id}
           >

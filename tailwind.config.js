@@ -10,5 +10,15 @@ export default {
     extend: {},
   },
   darkMode: "class",
-  plugins: [nextui(), typography()],
+  plugins: [
+    nextui({
+      themes: {
+        "i-fucking-hate-this": {
+          extend: "dark",
+          colors: {},
+        },
+      },
+    }),
+    typography(),
+  ],
 };

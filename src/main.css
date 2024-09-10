@@ -2,6 +2,6 @@
 @tailwind utilities;
 @tailwind components;
 
-:root {
-  --nextui-divider-opacity: 1;
+.dark {
+  --nextui-divider-opacity: 1 !important;
 }

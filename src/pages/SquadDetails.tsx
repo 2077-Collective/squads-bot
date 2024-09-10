@@ -44,7 +44,7 @@ function SquadDetails() {
         <BreadcrumbItem>{squad?.name}</BreadcrumbItem>
       </Breadcrumbs>
       <div className="grid md:grid-cols-2 gap-4">
-        <Card className="self-start border-cyan-400 border">
+        <Card className="self-start border-cyan2077 border">
           <CardHeader>
             <div>
               <h1 className="text-2xl font-semibold">{squad?.name}</h1>
@@ -83,7 +83,7 @@ function SquadDetails() {
             </Button>
           </CardFooter>
         </Card>{" "}
-        <Card className="self-start border-cyan-400 border">
+        <Card className="self-start border-cyan2077 border">
           <CardHeader>
             <h1 className="text-2xl font-semibold">Tasks</h1>
           </CardHeader>

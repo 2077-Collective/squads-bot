@@ -32,18 +32,17 @@ export default function TaskList({ tasks }: TaskListProps) {
             </p>
             <p className="text-sm italic">due {v.dueDate.toLocaleString()}</p>
             <p>{v.description}</p>
-            <div className="mt-2">
-              {/*v.skills.map((x) => (
-                <Chip className="mr-2">{x}</Chip>
-              ))*/}
-              <Link
-                href={`https://discord.com/channels/1247647880634695730/${v.squad}`}
-                showAnchorIcon
-                size="sm"
-              >
-                Go to squad
-              </Link>
-            </div>
+            {v.squad && (
+              <div className="mt-2">
+                <Link
+                  href={`https://discord.com/channels/1247647880634695730/${v.squad}`}
+                  showAnchorIcon
+                  size="sm"
+                >
+                  Go to squad
+                </Link>
+              </div>
+            )}
           </div>
         );
       })

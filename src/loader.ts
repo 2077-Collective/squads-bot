@@ -4,6 +4,7 @@ import { Task } from "./components/TaskList";
 export async function loader() {
   const s = await fetch("https://collective.mrkiter.com/squads");
   const t = await fetch("https://collective.mrkiter.com/tasks");
+  const l = await fetch("https://collective.mrkiter.com/leaderboard");
 
   const squads: {
     name: string;
@@ -68,5 +69,9 @@ export async function loader() {
       };
     });
 
-  return { tasks: finalizedTasks, squads: finalizedSquads };
+  return {
+    tasks: finalizedTasks,
+    squads: finalizedSquads,
+    leaderboard: await l.json(),
+  };
 }

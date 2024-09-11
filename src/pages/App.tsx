@@ -9,6 +9,7 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
+  Link,
 } from "@nextui-org/react";
 import "../main.css";
 import React, { useMemo, useState } from "react";
@@ -50,8 +51,8 @@ const Board: React.FC = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4 pl-2">2077 Community Dashboard</h1>
-      <div className="grid md:grid-cols-2 gap-4">
-        <Card className="md:col-span-2 border-cyan2077 border">
+      <div className="grid grid-cols-6 md:grid-cols-12 gap-4">
+        <Card className="border-cyan2077 border col-span-5">
           <CardHeader>
             <div className="w-full flex items-center">
               <h2 className="text-xl font-semibold inline-block">
@@ -60,11 +61,43 @@ const Board: React.FC = () => {
             </div>
           </CardHeader>
           <Divider />
-          <CardBody>
-            <p>Onboarding calls happen every Monday and Friday.</p>
+          <CardBody className="space-y-4">
+            <p>
+              Welcome to the <b>2077 Community Dashboard</b>, a place to quickly
+              view squads and available tasks!
+            </p>
+            <ul className="list-disc list-inside">
+              <li>Onboarding calls happen every Monday and Friday</li>
+              <li>
+                Join our Discord server at{" "}
+                <Link href="https://discord.gg/2077collective">
+                  2077collective
+                </Link>
+                <br /> (onboarding calls happen here)
+              </li>
+              <li>
+                Follow us on Twitter at{" "}
+                <Link href="https://x.com/2077Collective" showAnchorIcon>
+                  @2077Collective
+                </Link>
+              </li>
+            </ul>
           </CardBody>
         </Card>
-        <Card className="self-start border-cyan2077 border">
+        <Card className="border-cyan2077 border h-72 col-span-7">
+          <CardHeader>
+            <div className="w-full flex items-center">
+              <h2 className="text-xl font-semibold inline-block">
+                XP Leaderboard
+              </h2>
+            </div>
+          </CardHeader>
+          <Divider />
+          <CardBody>
+            <p>XP LEADERBOARD GOES HERE</p>
+          </CardBody>
+        </Card>
+        <Card className="self-start border-cyan2077 border col-span-6">
           <CardHeader>
             <div className="w-full flex items-center">
               <h2 className="text-xl font-semibold inline-block mr-auto">
@@ -111,7 +144,7 @@ const Board: React.FC = () => {
             </>
           )}
         </Card>
-        <Card className="self-start border-cyan2077 border">
+        <Card className="self-start border-cyan2077 border col-span-6">
           <CardHeader>
             <div className="flex w-full items-center">
               <h2 className="text-xl font-semibold">

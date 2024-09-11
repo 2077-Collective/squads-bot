@@ -10,6 +10,7 @@ export interface LeaderboardProps {
 export default function Leaderboard({ list }: LeaderboardProps) {
   return list
     ? list
+        .filter((a) => a.xp != 0)
         .sort((a, b) => b.xp - a.xp)
         .map(({ username, xp }, i) => {
           return (

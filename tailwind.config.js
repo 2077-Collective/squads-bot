@@ -24,6 +24,7 @@ export default {
             content1: "#000000",
             content2: "#18181b",
             divider: "#32DADC",
+            primary: "#32DADC",
           },
         },
       },

@@ -16,7 +16,6 @@ export interface TaskListProps {
 }
 
 export default function TaskList({ tasks }: TaskListProps) {
-  console.log(tasks);
   return tasks
     ? tasks.map((v, i) => {
         return (

@@ -16,11 +16,13 @@ import React, { useMemo, useState } from "react";
 import SquadList, { Squad } from "../components/SquadList";
 import TaskList, { Task } from "../components/TaskList";
 import { useRouteLoaderData } from "react-router";
+import Leaderboard, { XPList } from "../components/Leaderboard";
 
 const Board: React.FC = () => {
-  const { squads, tasks } = useRouteLoaderData("root") as {
+  const { squads, tasks, leaderboard } = useRouteLoaderData("root") as {
     squads: Squad[] | undefined;
     tasks: Task[] | undefined;
+    leaderboard: XPList | undefined;
   };
 
   const [squadsVisible, setSquadsVisible] = useState(true);
@@ -52,7 +54,7 @@ const Board: React.FC = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4 pl-2">2077 Community Dashboard</h1>
       <div className="grid grid-cols-6 md:grid-cols-12 gap-4">
-        <Card className="border-cyan2077 border col-span-5">
+        <Card className="border-cyan2077 border col-span-6 md:col-span-7">
           <CardHeader>
             <div className="w-full flex items-center">
               <h2 className="text-xl font-semibold inline-block">
@@ -84,7 +86,7 @@ const Board: React.FC = () => {
             </ul>
           </CardBody>
         </Card>
-        <Card className="border-cyan2077 border h-72 col-span-7">
+        <Card className="border-cyan2077 border h-72 col-span-6 md:col-span-5">
           <CardHeader>
             <div className="w-full flex items-center">
               <h2 className="text-xl font-semibold inline-block">
@@ -94,7 +96,7 @@ const Board: React.FC = () => {
           </CardHeader>
           <Divider />
           <CardBody>
-            <p>XP LEADERBOARD GOES HERE</p>
+            <Leaderboard list={leaderboard} />
           </CardBody>
         </Card>
         <Card className="self-start border-cyan2077 border col-span-6">

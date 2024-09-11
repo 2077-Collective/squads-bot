@@ -5,12 +5,28 @@ export type XPList = {
 }[];
 
 export interface LeaderboardProps {
-  list: XPList;
+  list?: XPList;
 }
 export default function Leaderboard({ list }: LeaderboardProps) {
   return list
-    .sort((a, b) => a.xp - b.xp)
-    .map(({ username, xp }) => {
-      //
-    });
+    ? list
+        .sort((a, b) => b.xp - a.xp)
+        .map(({ username, xp }, i) => {
+          return (
+            <div
+              key={username}
+              className={
+                "flex justify-between items-center p-4 " +
+                (i % 2 == 1 ? "bg-content2" : "")
+              }
+            >
+              <span>
+                <span className="font-semibold text-2xl">#{i + 1}</span>{" "}
+                <span>{username}</span>
+              </span>
+              <span className="font-semibold">{xp} XP</span>
+            </div>
+          );
+        })
+    : undefined;
 }

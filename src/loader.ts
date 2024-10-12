@@ -8,7 +8,7 @@ export async function loader() {
 
   const squads: {
     name: string;
-    leadName: string;
+    leadname: string;
     tags: string;
     threadId: string;
     status: string;
@@ -17,23 +17,22 @@ export async function loader() {
     firstmessage: string;
   }[] = await s.json();
   const tasks: {
-    id: number;
     name: string;
     description: string;
-    threadId: string;
+    threadid: string;
     xp: number;
-    createdBy: string;
+    createdby: string;
     status: "deleted" | "1";
-    createdTimestamp: string | number;
-    endTimestamp: string | number;
+    createdtimestamp: string | number;
+    endtimestamp: string | number;
   }[] = await t.json();
 
   const finalizedSquads: Squad[] = squads
-    .filter((v) => v.status == "active")
+    .filter((v) => v.status == "active" && !v.tags.includes("Completed"))
     .map(
       ({
         name,
-        leadName,
+        leadname,
         tags,
         threadId,
         creationDate,
@@ -42,7 +41,7 @@ export async function loader() {
       }) => {
         return {
           name,
-          lead: leadName,
+          lead: leadname,
           tags: tags.split(", "),
           id: threadId,
           creationDate: new Date(Number(creationDate) * 1000),
@@ -57,17 +56,19 @@ export async function loader() {
   console.log(tasks);
   const finalizedTasks: Task[] = tasks
     .filter((v) => v.status != "deleted")
-    .map(({ createdBy, description, name, id, threadId, xp, endTimestamp }) => {
-      return {
-        name,
-        description,
-        author: createdBy,
-        dueDate: new Date(endTimestamp),
-        id,
-        squad: threadId,
-        xp,
-      };
-    });
+    .map(
+      ({ createdby, description, name, threadid, xp, endtimestamp }, index) => {
+        return {
+          name,
+          description,
+          author: createdby,
+          dueDate: new Date(endtimestamp),
+          id: index,
+          squad: threadid,
+          xp,
+        };
+      }
+    );
 
   return {
     tasks: finalizedTasks,

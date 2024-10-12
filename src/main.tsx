@@ -36,7 +36,7 @@ export function Main() {
   const navigate = useNavigate();
   return (
     <NextUIProvider navigate={navigate}>
-      <div className="i-fucking-hate-this text-foreground bg-background">
+      <div className="text-foreground bg-background">
         <Outlet />
       </div>
     </NextUIProvider>

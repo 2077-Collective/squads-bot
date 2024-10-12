@@ -54,7 +54,7 @@ const Board: React.FC = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4 pl-2">2077 Community Dashboard</h1>
       <div className="grid grid-cols-6 md:grid-cols-12 gap-4">
-        <Card className="border-cyan2077 border col-span-6 md:col-span-7">
+        <Card className="col-span-6 md:col-span-7">
           <CardHeader>
             <div className="w-full flex items-center">
               <h2 className="text-xl font-semibold inline-block">
@@ -86,7 +86,7 @@ const Board: React.FC = () => {
             </ul>
           </CardBody>
         </Card>
-        <Card className="border-cyan2077 border h-72 col-span-6 md:col-span-5">
+        <Card className="h-72 col-span-6 md:col-span-5">
           <CardHeader>
             <div className="w-full flex items-center">
               <h2 className="text-xl font-semibold inline-block">
@@ -99,7 +99,7 @@ const Board: React.FC = () => {
             <Leaderboard list={leaderboard} />
           </CardBody>
         </Card>
-        <Card className="self-start border-cyan2077 border col-span-6">
+        <Card className="self-start col-span-6">
           <CardHeader>
             <div className="w-full flex items-center">
               <h2 className="text-xl font-semibold inline-block mr-auto">
@@ -146,7 +146,7 @@ const Board: React.FC = () => {
             </>
           )}
         </Card>
-        <Card className="self-start border-cyan2077 border col-span-6">
+        <Card className="self-start col-span-6">
           <CardHeader>
             <div className="flex w-full items-center">
               <h2 className="text-xl font-semibold">
